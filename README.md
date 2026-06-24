@@ -101,10 +101,10 @@ ___
 
 ### Comparação dos modelos
 | Modelo | Kaggle Score|
-|___ |___:|
+|___     |         ___:|
 | Randon Forest | 0.75119|
-| XGBoost | 0.73200|
-| SVM | 0.78468|
+| XGBoost |       0.73200|
+| SVM |           0.78468|
 
 **O SVM apresentou o melhor desempenho final**, superando modelos ensemble como Random Forest e XGBoost.
 
@@ -116,24 +116,24 @@ ___
 
 ## Distribuição da variável target
 
-![![Distribuição](figuras/)
+![![Distribuição](figuras/distribuicao_sobrevivencia.png)
 
 ---
 
 ### Sobrevivência por sexo
 
-![Sobrevivencia](figuras/)
+![Sobrevivencia](figuras/sobrevivencia_por_sexo.png)
 
 ---
 
 ### Distribuição por idade
 
-![Distribuicao](figuras/)
+![Distribuicao](figuras/distribuicao_por_idade.png)
 
 ---
 ### Comparação final
 
-![Comparacao](figuras/)
+![Comparacao](figuras/comparacao_final_modelos.png)
 
 ___
 
