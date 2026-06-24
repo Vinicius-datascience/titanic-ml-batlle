@@ -1,101 +1,167 @@
-# Titanic Survival Prediction - Machine Learning Model Battle
-Sobre o projeto
+# Titanic Survival Prediction
 
-Este projeto tem como objetivo prever a sobrevivência de passageiros do Titanic utilizando técnicas de Machine Learning, com foco na comparação de diferentes algoritmos de classificação.
+### Uma batalha de modelos para previsão de sobrevivência
 
-Mais do que apenas construir um modelo preditivo, o projeto foi desenvolvido como uma batalha de modelos (Model Battle), comparando diferentes abordagens para identificar qual apresenta melhor desempenho em capacidade de generalização.
+## Contexto do Problema
 
-⸻
+O naufrágio do Titanic é um dos desastres marítimos mais conhecidos da história e se tornou um problema clássico de Machine Learning. A competição do Kaggle propõe prever quais passageiros sobreviveram com base em características demográficas e socioeconômicas.
 
-Objetivo
+Este projeto busca responder à seguinte pergunta:
 
-Desenvolver modelos preditivos para estimar a sobrevivência de passageiros com base em características demográficas e socioeconômicas, além de avaliar o impacto de técnicas de pré-processamento, balanceamento e ajuste de hiperparâmetros.
+**Quais fatores tiveram maior influência na sobrevivência dos passageiros e qual modelo apresenta melhor desempenho preditivo?**
 
-⸻
+___
 
-Tecnologias utilizadas
-	•	Python
-	•	Pandas
-	•	NumPy
-	•	Matplotlib
-	•	Seaborn
-	•	Scikit-learn
-	•	XGBoost
-	•	Imbalanced-learn (SMOTE)
-	•	Joblib
+## Objetivo
 
-Fluxo do projeto
+Utilizar técnicas de análise de dados e Machine Learning para prever a sobrevivência dos passageiros, comparando diferentes algoritmos de classificação e avaliando o impacto de técnicas de balanceamento e ajuste de hiperparâmetros.
 
-1. Análise exploratória (EDA)
-	•	Distribuição da variável target
-	•	Análise de sobrevivência por sexo
-	•	Relação entre classe social e sobrevivência
-	•	Distribuição de idade
-	•	Correlação entre variáveis
+___
 
-2. Pré-processamento
-	•	Tratamento de valores ausentes
-	•	Encoding de variáveis categóricas
-	•	Padronização de dados
+## Fonte de Dados
 
-3. Feature Engineering
+Os dados utilizados foram disponibilizados pela competição oficial do Kaggle:
 
-Criação e transformação de variáveis relevantes para melhoria da performance dos modelos.
+Titanic - Machine Learning from Disaster
 
-4. Balanceamento de classes
+## Variáveis selecionadas:
+-	PassengerId
+-	Pclass
+-	Sex
+-	Age
+- 	SibSp
+-  Parch
+-  Fare
+-  Embarked
 
-Aplicação de SMOTE para avaliação do impacto no desempenho.
+## Variável target:
+- 	Survived
+-	0 = Não sobreviveu
+- 	1 = Sobreviveu
 
-5. Modelagem
+___
 
-Treinamento e comparação entre:
-	•	Random Forest
-	•	XGBoost
-	•	Support Vector Machine (SVM)
+## Coleta e Tratamento de Dados
 
-6. Hyperparameter Tuning
+O processo de preparação incluiu:
+-	Análise de valores ausentes
+-	Tratamento de variáveis nulas (Age, Embarked, Fare)
+-	Conversão de variáveis categóricas em numéricas
+-	Padronização de variáveis para modelos sensíveis à escala
+-	Separação entre variáveis independentes (X) e variável target (y)
 
-Otimização de hiperparâmetros para melhorar performance.
+Essas etapas foram fundamentais para garantir melhor qualidade e consistência dos dados para modelagem.
 
-Resultados
-| Modelo        | Kaggle Score
-| Random Forest | 0.75119
-| XGBoost       | 0.73200
-| SVM           | 0.78468
+___
 
-Melhor modelo: Support Vector Machine(SVM)
+## Análise Exploratória de Dados (EDA)
 
-Visualizações
+A análise exploratória revelou padrões importantes:
 
-Distribuição da variável alvo
+Principais achados:
+-	Mulheres apresentaram taxa de sobrevivência significativamente maior.
+-	Passageiros da primeira classe tiveram maior probabilidade de sobreviver.
+-	Passageiros mais jovens apresentaram maior taxa de sobrevivência em alguns grupos.
+-	A classe social e a tarifa paga mostraram forte relação com sobrevivência.
 
-(Adicionar imagem)
+Esses padrões indicam que fatores sociais e demográficos tiveram impacto relevante no desfecho.
 
-Sobrevivência por sexo
+___
 
-(Adicionar imagem)
+## Feature Engineering
 
-Sobrevivência por classe
+Foram realizadas transformações para melhorar a performance dos modelos:
+-	Encoding da variável Sex
+-	Encoding da variável Embarked
+-	Normalização de variáveis numéricas
+-	Ajustes estruturais para treinamento
 
-(Adicionar imagem)
+Além disso, foram realizados experimentos com balanceamento utilizando SMOTE.
 
-Correlação entre variáveis
+___
 
-(Adicionar imagem)
+## Modelagem
 
-Comparação final dos modelos
+Foram treinados e comparados três modelos de classificação:
+-	Random Forest
+-	XGBoost
+-	Support Vector Machine (SVM)
 
-(Adicionar imagem)
+## Etapas da modelagem:
+-	Train/Test Split
+-	Treinamento inicial (baseline)
+- 	Testes com SMOTE
+- Ajuste de hiperparâmetros
+-	Avaliação com métricas de classificação
+-	Submissão no Kaggle
+  
+___
 
-⸻
+## Resultados
 
-Principais insights
-	•	Sexo foi a variável mais determinante para sobrevivência.
-	•	Passageiros de classes mais altas tiveram maior taxa de sobrevivência.
-	•	Feature engineering impactou positivamente a performance.
-	•	O balanceamento com SMOTE melhorou métricas de recall.
-	•	O SVM apresentou melhor capacidade de generalização no Kaggle.
+### Comparação dos modelos
+| Modelo | Kaggle Score
+|___ |___:
+| Randon Forest | 0.75119
+| XGBoost | 0.73200
+| SVM | 0.78468
 
-Autor: 
-Marcos Vinícius 
+**O SVM apresentou o melhor desempenho final**, superando modelos ensemble como Random Forest e XGBoost.
+
+Esse resultado demonstra que, para este conjunto de dados, um modelo com maior capacidade de separação de fronteira apresentou melhor generalização.
+
+___
+
+## Visualizações
+
+## Distribuição da variável target
+
+![![Distribuição](figuras/)
+
+---
+
+### Sobrevivência por sexo
+
+![Sobrevivencia](figuras/)
+
+---
+
+### Distribuição por idade
+
+![Distribuicao](figuras/)
+
+---
+### Comparação final
+
+![Comparacao](figuras/)
+
+___
+
+## Conclusões
+
+Os resultados mostraram que fatores demográficos e socioeconômicos tiveram forte relação com a sobrevivência no Titanic.
+
+## As variáveis mais relevantes foram:
+- 	Sexo
+-	Classe social
+-	Idade
+-	Tarifa paga
+
+Apesar do bom desempenho dos modelos ensemble, o SVM apresentou a melhor capacidade preditiva no conjunto de teste final.
+
+Este projeto demonstra a importância da experimentação, comparação entre modelos e técnicas de pré-processamento para construção de modelos mais robustos.
+
+___
+
+## Tecnologias Utilizadas
+-	Python
+-	Pandas
+-	NumPy
+-	Matplotlib
+-	Seaborn
+-	Scikit-learn
+-	XGBoost
+-	Imbalanced-learn (SMOTE)
+-	Joblib
+-	Kaggle
 
