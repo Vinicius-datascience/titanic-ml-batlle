@@ -100,11 +100,11 @@ ___
 ## Resultados
 
 ### Comparação dos modelos
-| Modelo | Kaggle Score|
-|___     |         ___:|
-| Randon Forest | 0.75119|
-| XGBoost |       0.73200|
-| SVM |           0.78468|
+| Modelo | Accuracy | Kaggle Score |
+|---|---:|---:|
+| Random Forest | 0.81 | 0.75119 |
+| XGBoost | 0.79 | 0.73200 |
+| SVM | 0.84 | 0.78468 |
 
 **O SVM apresentou o melhor desempenho final**, superando modelos ensemble como Random Forest e XGBoost.
 
@@ -116,7 +116,7 @@ ___
 
 ## Distribuição da variável target
 
-![![Distribuição](figuras/distribuicao_sobrevivencia.png)
+![Distribuição](figuras/distribuicao_sobrevivencia.png)
 
 ---
 
